@@ -21,7 +21,7 @@ function createPictureMarkup(pics) {
     .join('');
 }
 
-var lightbox = new SimpleLightbox('.gallery a', { captionDelay:250  });
+const lightbox = new SimpleLightbox('.gallery a', { captionDelay:250  });
   
 function onPictureGalleryClick(evt) {
     evt.preventDefault();
