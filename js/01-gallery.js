@@ -9,6 +9,7 @@ pictureGallery.insertAdjacentHTML('beforeend', pictureMarkup);
 
 pictureGallery.addEventListener('click', onPictureGalleryClick);
 
+
 function createPictureMarkup(pics) {
   return pics
     .map(({ preview, original, description }) => {
@@ -28,6 +29,8 @@ function createPictureMarkup(pics) {
     .join('');
 }
 
+
+
 function onPictureGalleryClick(evt) {
     evt.preventDefault();
     
@@ -40,9 +43,19 @@ const instance = basicLightbox.create(`
     width="800" height="600"
     >
 `)
-instance.show()
+  instance.show()
+  
+
+  function onEscKeyPress(evt) {
+  const ESC_KEY_CODE = 'Escape';
+  const isEscKey = evt.code === ESC_KEY_CODE;
+  if (isEscKey) {
+    instance.close();
+  }
 }
 
+window.addEventListener('keydown', onEscKeyPress);
+}
 console.log(galleryItems);
 
 
